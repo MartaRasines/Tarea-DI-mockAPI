@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DinoHub.MVVM.Views.EditPage"
+             Title="EditPage">
+    <VerticalStackLayout Padding="20">
+
+        <Label Text="Nombre:"/>
+        <Entry Text="{Binding DinosaurioEditable.Nombre}" Placeholder="Nombre del dinosaurio"/>
+
+        <Label Text="Tamaño:"/>
+        <Entry Text="{Binding DinosaurioEditable.Tamano}" Placeholder="Tamaño" Keyboard="Numeric"/>
+        
+        <Label Text="URL de la Imagen:"/>
+        <Entry Text="{Binding DinosaurioEditable.Imagen}" Placeholder="Introduce la URL de la imagen"/>
+
+        <Label Text="Carnívoro:"/>
+        <Switch IsToggled="{Binding DinosaurioEditable.Carnivoro}" />
+
+        <Button Text="Guardar Cambios" Command="{Binding SaveCommand}" />
+
+    </VerticalStackLayout>
+</ContentPage>

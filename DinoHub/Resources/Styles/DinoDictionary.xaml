@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:viewmodel="clr-namespace:DinoHub.MVVM.ViewModels"
+                    x:Class="DinoHub.Resources.Styles.DinoDictionary">
+
+    <DataTemplate x:Key="DinoHerviboro">
+        <Grid Margin="10">
+            <Frame CornerRadius="10">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Offset="1" Color="Green"/>
+                        <GradientStop Offset="0" Color="LightGreen"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <HorizontalStackLayout Spacing="10" VerticalOptions="Center" Padding="10">
+                    <Image Source="{Binding Imagen}" WidthRequest="80" HeightRequest="80" BackgroundColor="Transparent"/>
+                    <VerticalStackLayout HorizontalOptions="FillAndExpand">
+                        <Label Text="{Binding Nombre}" 
+                               FontSize="22" 
+                               FontAttributes="Bold" 
+                               TextColor="Black" 
+                               LineBreakMode="WordWrap"/>
+                        <HorizontalStackLayout HorizontalOptions="EndAndExpand">
+                            <Label Text="{Binding Tamano, StringFormat='Tamaño: {0} metros'}"
+                                   FontSize="18"
+                                   TextColor="Black"
+                                   Margin="0,0,10,0"/>
+                            <Label Text="{Binding Id, StringFormat='ID: {0}'}"
+                                   FontSize="18"
+                                   TextColor="Black"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+
+                </HorizontalStackLayout>
+            </Frame>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="DinoCarnivoro">
+        <Grid Margin="10">
+            <Frame CornerRadius="10">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Offset="0" Color="#FF4D4D"/>
+                        <GradientStop Offset="1" Color="#DD0000"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <HorizontalStackLayout Spacing="10" VerticalOptions="Center" Padding="10">
+                    <Image Source="{Binding Imagen}" WidthRequest="80" HeightRequest="80" BackgroundColor="Transparent"/>
+                    <VerticalStackLayout HorizontalOptions="FillAndExpand">
+                        <Label Text="{Binding Nombre}" 
+                               FontSize="22" 
+                               FontAttributes="Bold" 
+                               TextColor="White"
+                               LineBreakMode="WordWrap"/>
+                        <HorizontalStackLayout HorizontalOptions="EndAndExpand">
+                            <Label Text="{Binding Tamano, StringFormat='Tamaño: {0} metros'}"
+                                   FontSize="18"
+                                   TextColor="White"
+                                   Margin="0,0,10,0"/>
+                            <Label Text="{Binding Id, StringFormat='ID: {0}'}"
+                                   FontSize="18"
+                                   TextColor="White"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+
+                </HorizontalStackLayout>
+            </Frame>
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>

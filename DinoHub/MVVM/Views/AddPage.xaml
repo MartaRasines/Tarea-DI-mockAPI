@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DinoHub.MVVM.Views.AddPage"
+             Title="AddPage">
+
+    <VerticalStackLayout Padding="20">
+        <Label Text="Agregar Dinosaurio" FontSize="24" HorizontalOptions="Center"/>
+
+        <Entry Text="{Binding NuevoDinosaurio.Nombre}" Placeholder="Nombre" />
+
+        <Entry Text="{Binding NuevoDinosaurio.Tamano}" Placeholder="Tamaño" Keyboard="Numeric" />
+
+        <Entry Text="{Binding NuevoDinosaurio.Imagen}" Placeholder="URL de la Imagen" />
+
+        <Label Text="¿Es Carnívoro?" HorizontalOptions="Center"/>
+        <Switch IsToggled="{Binding NuevoDinosaurio.Carnivoro}" />
+
+        <Button Text="Guardar" Command="{Binding AddDinoCommand}" />
+    </VerticalStackLayout>
+</ContentPage>

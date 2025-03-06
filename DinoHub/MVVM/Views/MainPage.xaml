@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Selectors="clr-namespace:DinoHub.Selectors"
+             x:Class="DinoHub.MainPage">
+
+    <ContentPage.Resources>
+        <Selectors:DinoSelector x:Key="DinoSelector"/>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10">
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Spacing="20">
+
+                <Image Source="logo.png" WidthRequest="80" HeightRequest="80" HorizontalOptions="Start" VerticalOptions="Center"/>
+
+                <Frame BackgroundColor="#2E3B2D" Padding="15" CornerRadius="15" Margin="10" VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Welcome to Jurassic Park" 
+               FontSize="20" 
+               FontAttributes="Bold" 
+               FontFamily="Impact"
+               TextColor="#E8E84D"
+               VerticalOptions="Center"
+               HorizontalTextAlignment="Center"/>
+                </Frame>
+
+            </StackLayout>
+
+            <CollectionView ItemsSource="{Binding Dinosaurios}" 
+                        ItemTemplate="{StaticResource DinoSelector}"
+                        SelectionMode="None">
+
+            </CollectionView>
+
+            <Grid RowDefinitions="Auto,*,Auto" ColumnDefinitions="*,Auto,*">
+                <!-- Campo para introducir el ID centrado encima -->
+                <Entry Text="{Binding DinoId}" 
+                       Placeholder="Introduce ID y selecciona opción" 
+                       WidthRequest="230" 
+                       Keyboard="Numeric" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       Grid.Row="0" Grid.Column="0" 
+                       Grid.ColumnSpan="3"/>
+
+                <!-- Imagen central -->
+                <Image Source="footer.png" 
+                       HeightRequest="150" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       Grid.Row="1" Grid.Column="1"/>
+
+                <!-- Botón Obtener Dino por ID -->
+                <Button Text="Get Dino by ID" 
+                        Command="{Binding GetDinoByIdCommand}" 
+                        CommandParameter="{Binding DinoId}" 
+                        Grid.Row="1" Grid.Column="0" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center" />
+
+                <!-- Botón Agregar Dino -->
+                <Button Text="Add Dino" 
+                        Command="{Binding NavigateAddPageCommand}" 
+                        Grid.Row="1" Grid.Column="2" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center" />
+
+                <!-- Botón Actualizar Dino -->
+                <Button Text="Update Dino" 
+                        Command="{Binding NavigateEditPageCommand}" 
+                        CommandParameter="{Binding DinoId}" 
+                        Grid.Row="2" Grid.Column="0" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center" />
+
+                <!-- Botón Eliminar Dino -->
+                <Button Text="Delete Dino" 
+                        Command="{Binding DeleteDinoCommand}" 
+                        CommandParameter="{Binding DinoId}" 
+                        Grid.Row="2" Grid.Column="2" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center" />
+            </Grid>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+</ContentPage>
